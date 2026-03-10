@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automotive LED Bar Light | E-Commerce</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .navbar {
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .product-image-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .product-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .product-image:hover {
+            transform: scale(1.05);
+        }
+        .price-tag {
+            font-size: 2rem;
+            color: #d9534f;
+            font-weight: bold;
+        }
+        .cart-badge {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">AutoGear Pro</a>
+            <div class="d-flex align-items-center">
+                <button class="btn btn-outline-light position-relative" type="button">
+                    🛒 Cart
+                    <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-badge">
+                        0
+                    </span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="row gx-5">
+            <div class="col-md-6 mb-4">
+                <div class="product-image-container">
+                    <img src="https://via.placeholder.com/600x400?text=Premium+LED+Bar+Light" alt="LED Bar Light" class="product-image" id="mainImage">
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <h1 class="display-5 fw-bolder">Premium 24-Inch Automotive LED Bar Light</h1>
+                <p class="lead text-muted">Ultra-bright, waterproof illumination for off-road adventures and night driving.</p>
+                
+                <div class="mb-4">
+                    <span class="price-tag">₹4,499</span>
+                    <span class="text-decoration-line-through text-muted ms-2">₹5,999</span>
+                </div>
+
+                <p>Enhance your visibility and safety with our high-intensity LED light bar. Built with an aerospace-grade aluminum housing, it is designed to withstand the harshest weather conditions and toughest terrains.</p>
+
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-5">
+                    <button type="button" class="btn btn-primary btn-lg px-4 me-md-2" id="addToCartBtn">Add to Cart</button>
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4" id="buyNowBtn">Buy Now</button>
+                </div>
+
+                <div class="accordion" id="specsAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Technical Specifications
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#specsAccordion">
+                            <div class="accordion-body">
+                                <ul>
+                                    <li><strong>Power:</strong> 120W</li>
+                                    <li><strong>Voltage:</strong> 9V - 32V DC (Fits 12V/24V vehicles)</li>
+                                    <li><strong>Color Temperature:</strong> 6000K Pure White</li>
+                                    <li><strong>Waterproof Rating:</strong> IP68</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Certifications & Safety
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#specsAccordion">
+                            <div class="accordion-body">
+                                Fully <strong>BIS Certified</strong> for safety and quality assurance in India. Features built-in over-voltage and reverse polarity protection.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Initialize cart count
+        let cartItemCount = 0;
+
+        // Select elements
+        const addToCartBtn = document.getElementById('addToCartBtn');
+        const cartCountDisplay = document.getElementById('cart-count');
+
+        // Add event listener to the button
+        addToCartBtn.addEventListener('click', function() {
+            // Increment the count
+            cartItemCount++;
+            
+            // Update the display
+            cartCountDisplay.textContent = cartItemCount;
+            
+            // Optional: Provide visual feedback
+            const originalText = addToCartBtn.textContent;
+            addToCartBtn.textContent = 'Added!';
+            addToCartBtn.classList.replace('btn-primary', 'btn-success');
+            
+            // Reset button text after 1.5 seconds
+            setTimeout(() => {
+                addToCartBtn.textContent = originalText;
+                addToCartBtn.classList.replace('btn-success', 'btn-primary');
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
